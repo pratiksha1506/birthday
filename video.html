@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise Video</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+h1{
+    color:white;
+    font-size:38px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+video{
+    width:25%;
+    max-width:320px;
+    max-height:550px;
+    height:auto;
+    object-fit:contain;
+    border-radius:20px;
+    box-shadow:0 0 35px hotpink;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:purple;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7b1fa2;
+}
+.letterBtn{
+
+margin-top:30px;
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#ff4b91,#9c27b0);
+color:white;
+cursor:pointer;
+transition:.4s;
+
+}
+
+.letterBtn:hover{
+
+transform:scale(1.08);
+
+}
+
+#letterContainer{
+
+display:none;
+margin-top:40px;
+animation:fadeIn 1.5s;
+
+}
+
+.letter{
+
+width:80%;
+max-width:650px;
+background:white;
+color:#444;
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 30px hotpink;
+font-family:'Georgia',serif;
+line-height:1.8;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎉 A Special Surprise For You ❤️</h1>
+
+<video id="birthdayVideo" controls autoplay>
+
+<source src="birthday.mp4" type="video/mp4">
+
+</video>
+
+<button class="letterBtn" onclick="openLetter()">
+    💌 Open My Letter
+</button>
+
+<div id="letterContainer">
+
+    <div class="letter">
+
+        <h2>💜 Dear Love 💜</h2>
+
+        <p id="letterText"></p>
+
+    </div>
+
+</div>
+<script>
+
+function goBack(){
+
+window.location.href="index.html";
+
+}
+
+window.onload=function(){
+
+document.getElementById("birthdayVideo").play();
+
+}
+const message =
+`Happy Birthday! 🎂❤️
+
+I hope this little surprise brought a smile to your face.
+
+You deserve all the happiness, success, love, and beautiful moments in life.
+
+May this year bring you countless reasons to smile and unforgettable memories.
+
+Thank you for being such a wonderful person.
+
+Once again...
+
+Happy Birthday! 🎉💜`;
+
+function openLetter(){
+
+document.querySelector(".letterBtn").style.display="none";
+
+document.getElementById("letterContainer").style.display="block";
+
+let text=document.getElementById("letterText");
+
+let i=0;
+
+let typing=setInterval(function(){
+
+if(i<message.length){
+
+text.innerHTML+=message.charAt(i);
+
+i++;
+
+}else{
+
+clearInterval(typing);
+
+}
+
+},40);
+
+}
+</script>
+
+</body>
+</html>
